@@ -259,3 +259,18 @@ margin-bottom: 20px;
                 margin-bottom: 20px;
             }
         }
+
+        footer {
+            background-color: #2d3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        span{
+            color: orange;
+        font-family: "Playwrite IN", serif;
+        }

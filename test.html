@@ -1,0 +1,389 @@
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap');
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.808);
+        }
+
+        .wrapper {
+            background-image: url("pic.jpg");
+            background-size: cover;
+            height: 100vh;
+            background-position: center;
+        }
+
+        h3 {
+            font-family: "Playwrite IN", serif;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        h3 span {
+            color: orange;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            text-align: center;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 20px;
+        }
+
+        nav ul li a {
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            transition: 1s ease-in-out;
+        }
+
+        .login {
+            padding: 10px 10px;
+            background-color: orange;
+        }
+
+        .login:hover {
+            color: white;
+            background-color: rgb(238, 156, 4);
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+
+        .content {
+            width: 80%;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .pic {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            margin: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .pic img {
+            border-radius: 10px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .pic h2 {
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .pic p {
+            font-size: 18px;
+            color: #888;
+        }
+
+        .pic .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .pic .buy-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pic .buy-btn:hover {
+            background-color: #e76a00;
+        }
+
+        /* Hover effect for the images and container */
+        .pic:hover {
+            transform: scale(1.05);
+        }
+
+        .pic:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                width: 95%;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pic {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <title>Clothing Store</title>
+</head>
+<body>
+    <header>
+        <h3>Clothing <span>Store</span></h3>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#" class="login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div class="content">
+            <!-- Clothing items displayed here -->
+            <div class="pic">
+                <img src="shirt.jpg" alt="T-shirt">
+                <h2>T-shirt</h2>
+                <p>Comfortable cotton T-shirt</p>
+                <div class="price">$19.99</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="pic">
+                <img src="jeans.jpg" alt="Jeans">
+                <h2>Jeans</h2>
+                <p>Stylish denim jeans</p>
+                <div class="price">$49.99</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="pic">
+                <img src="jacket.jpg" alt="Jacket">
+                <h2>Jacket</h2>
+                <p>Warm winter jacket</p>
+                <div class="price">$79.99</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="pic">
+                <img src="dress.jpg" alt="Dress">
+                <h2>Dress</h2>
+                <p>Elegant summer dress</p>
+                <div class="price">$39.99</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="pic">
+                <img src="shoes.jpg" alt="Shoes">
+                <h2>Running Shoes</h2>
+                <p>Comfortable running shoes</p>
+                <div class="price">$59.99</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="pic">
+                <img src="hat.jpg" alt="Hat">
+                <h2>Hat</h2>
+                <p>Stylish baseball hat</p>
+                <div class="price">$14.99</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slider img');
+        const totalSlides = slides.length;
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            }
+
+            const newTransformValue = -currentIndex * 100;
+            document.querySelector('.slider').style.transform = `translateX(${newTransformValue}%)`;
+        }
+    </script>
+</body>
+</html>
+
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 350px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.content {
+width: 80%;
+margin: -100px auto;
+padding: 30px;
+background-color: rgba(255, 255, 255, 0.8);
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: center;
+}
+
+.pic {
+width: 250px;
+height: 300px;
+object-fit: cover;
+margin: 15px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+border-radius: 10px;
+transition: transform 0.3s ease-in-out;
+text-align: center;
+}
+
+.pic img {
+border-radius: 10px;
+width: 100%;
+height: 200px;
+object-fit: cover;
+transition: transform 0.3s ease-in-out;
+}
+
+.pic h2 {
+margin-top: 10px;
+font-size: 22px;
+font-weight: 600;
+color: #333;
+text-transform: uppercase;
+}
+
+/* Hover effect for the images and container */
+.pic:hover {
+transform: scale(1.05);
+}
+
+.pic:hover img {
+transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.content {
+width: 95%;
+flex-direction: column;
+align-items: center;
+}
+
+.pic {
+width: 80%;
+margin-bottom: 20px;
+}
+}
+
+
+/* Button Styles */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+</style>
+<title>Website for Marketing</title>
+</head>
+<body>
+<header>
+<h3>Website <span>Development</span></h3>
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#" class="login">Login</a></li>
+    </ul>
+</nav>
+</header>
+
+<div class="wrapper">
+<div class="slider-container">
+    <div class="slider">
+        <img src="7.jpg" alt="Image 1">
+        <img src="8.jpg" alt="Image 2">
+        <img src="10.jpg" alt="Image 3">
+        <img src="11.jpg" alt="Image 4">
+        <img src="17.jpg" alt="Image 5">
+        <img src="9.jpg" alt="Image 6">
+        <img src="13.jpg" alt="Image 7">
+        <img src="kevin.jpg" alt="Image 8">
+        <img src="hhhh.jpg" alt="Image 9">
+    </div>
+    <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="slider-btn next" onclick="moveSlide(0.6)">&#10095;</button>
+</div>
+</div>

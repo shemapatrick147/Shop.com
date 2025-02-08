@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <h3>Clothing <span>Store</span></h3>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="TOXIC.HTML">Contact</a></li>
+                <li><a href="sale.html">Sale</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html" class="login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="total">
+            <p>Total: <span id="total-price">$0.00</span></p>
+        </div>
+        <div class="cart-actions">
+            <a href="checkout.html" class="buy-btn">Buy Now</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SHEMA SHOP. All Rights Reserved.</p>
+        <p>Address: 123 Flavor Street, Cityville | Phone: (0791183356) | <a href="mailto:info@miganorestaurant.com" style="color: white;">Email Us</a></p>
+    </footer>
+
+    <script>
+        // Get the cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Get the cart container and total price elements
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+
+        function updateCartDisplay() {
+            cartItemsContainer.innerHTML = "";
+            let totalPrice = 0;
+            
+            cart.forEach((product, index) => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('cart-item');
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="cart-product-image">
+                    <div class="cart-product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.price}</p>
+                        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(productElement);
+                totalPrice += parseFloat(product.price.replace('$', ''));
+            });
+            totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        updateCartDisplay();
+    </script>
+</body>
+</html>

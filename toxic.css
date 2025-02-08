@@ -1,46 +1,226 @@
 *{
-    animation: color 5s linear infinite;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-@keyframes color{
-    0%{background-color: antiquewhite;}
-    50%{background-color: aquamarine;}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+header{
+    background-color: #333;
+}
 
-    100%{
-        background-color: blueviolet;
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 20px 400px;
+    max-width: 500px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    border-color: #5cb85c;
+    outline: none;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #4cae4c;
+}
+
+.form-container .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.form-container .success {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .form-container {
+        margin: 20px;
+        width: 90%;
     }
 }
-button{
-    font-size: small;
-    border-radius: 10px;
-    background-color: transparent !important;
+h3 {
+    font-family: "Playwrite IN", serif;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
 }
-button:hover{
-    font-size: medium;
-    background-color: aqua !important;
+
+h3 span {
+    color: orange;
 }
-form {
+
+nav ul {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0;
+    text-align: center;
     justify-content: center;
-    
-    border-radius: 3rem !important;
-    padding: 20px;
-    background-color: lightgray;
 }
-form input{
+
+nav ul li {
+    margin: 20px;
+}
+
+nav ul li a {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: 1s ease-in-out;
+}
+
+.login {
+    padding: 10px 10px;
+    background-color: orange;
+}
+
+.login:hover {
+    color: white;
+    background-color: rgb(238, 156, 4);
+}
+
+nav ul li a:hover {
+    color: orange;
+}
+
+
+/* General footer styling */
+.footer {
+    background-color: #121212;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Subscription Form styling */
+.subscription-form {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.subscription-form h4 {
+    margin-bottom: 15px;
+}
+
+.subscription-form input {
+    padding: 10px;
+    width: 100%;
     margin-bottom: 10px;
-    padding: 3px;
-    border-radius: 10px;
-    border: 1;
+    border-radius: 5px;
+    border: none;
 }
-button:hover{
-    background-color: blue;
+
+.subscription-form button {
+    padding: 12px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
 }
-fieldset{
-    border-radius: 30px;
-option:hover{
-    background-color: blue;
 
+/* Footer Links styling */
+.footer-links {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
 
+.footer-links h4 {
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Bottom styling */
+.footer-bottom {
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+.footer-bottom a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
 }

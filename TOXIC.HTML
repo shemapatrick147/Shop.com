@@ -3,100 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Contact Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(255, 255, 255);
-            justify-content: center;
-            align-items: center;
-            height: 80px;
-            margin: 0;
-        }
-
-        .form-container {
-            background-color:rgb(245, 245, 245);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            margin: 50px 400px;
-            max-width: 400px;
-        }
-
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        .form-container input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-container button {
-            width: 100%;
-            padding: 12px;
-            background-color: #5cb85c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .form-container button:hover {
-            background-color: #4cae4c;
-        }
-
-        .form-container .error {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-    </style>
+    <title>Contact Us Form</title>
+    <link rel="stylesheet" href="toxic.css">
 </head>
+<script>
+    async function handleContactForm(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            // Collect form data
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name || !email || !message) {
+                alert("All fields are required.");
+                return;
+            }
+
+            try {
+                // Send data to the server
+                const response = await fetch("https://formspree.io/f/xldglpwj", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ name, email, message }),
+                });
+
+                if (response.ok) {
+                    alert("Message sent successfully!");
+                    form.reset();
+                } else {
+                    const error = await response.text();
+                    alert(`Failed to send message: ${error}`);
+                }
+            } catch (error) {
+                console.error("Error sending message:", error);
+                alert("An error occurred while sending the message. Please try again later.");
+            }
+        }
+</script>
 <body>
+    <header>
+        <h3>Clothing <span>Store</span></h3>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="TOXIC.HTML">Contact</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#" class="login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="form-container">
-        <h2>Contact Us</h2>
+        <main>
+            <section class="contact">
+                <h2>Contact Us</h2>
+                <form onsubmit="handleContactForm(event)" class="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required />
 
-        <form action="https://formspree.io/f/xldglpwj" method="post">
-            <div class="error" id="error-message"></div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required />
 
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
 
-            <label for="password">Email: </label>
-            <input type="email" placeholder="Enter your email" required>
-
-            <label> Your message:</label>
-                <textarea name="message"></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
+                    <button type="submit" class="btn">Send</button>
+                </form>
+            </section>
+        </main>
     </div>
 
-  
+    <!-- Minimalistic Footer with Subscription Form -->
+<footer class="footer">
+    <div class="footer-container">
 
-</body>
-</html>
+        <!-- Subscription Form -->
+        <div class="subscription-form">
+            <h4>Subscribe for Updates</h4>
+            <form action="/subscribe" method="post">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+            <h4>Links</h4>
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 FullStack Developer. All rights reserved.</p>
+        <p>
+            <a href="/privacy-policy">Privacy Policy</a> | 
+            <a href="/terms-of-service">Terms of Service</a>
+        </p>
+    </div>
+</footer>
+
 
 </body>
 </html>

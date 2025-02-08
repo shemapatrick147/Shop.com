@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap');
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.808);
+        }
+
+        .wrappr {
+            background-image: url("pic.jpg");
+            background-size: cover;
+            height: 100vh;
+            background-position: center;
+        }
+
+        .slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 350px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.content {
+width: 80%;
+margin: -100px auto;
+padding: 30px;
+background-color: rgba(255, 255, 255, 0.8);
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: center;
+}
+
+.pic {
+width: 250px;
+height: 300px;
+object-fit: cover;
+margin: 15px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+border-radius: 10px;
+transition: transform 0.3s ease-in-out;
+text-align: center;
+}
+
+.pic img {
+border-radius: 10px;
+width: 100%;
+height: 200px;
+object-fit: cover;
+transition: transform 0.3s ease-in-out;
+}
+
+.pic h2 {
+margin-top: 10px;
+font-size: 22px;
+font-weight: 600;
+color: #333;
+text-transform: uppercase;
+}
+
+/* Hover effect for the images and container */
+.pic:hover {
+transform: scale(1.05);
+}
+
+.pic:hover img {
+transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.content {
+width: 95%;
+flex-direction: column;
+align-items: center;
+}
+
+.pic {
+width: 80%;
+margin-bottom: 20px;
+}
+}
+
+
+/* Button Styles */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+        h3 {
+            font-family: "Playwrite IN", serif;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        h3 span {
+            color: orange;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            text-align: center;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 20px;
+        }
+
+        nav ul li a {
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            transition: 1s ease-in-out;
+        }
+
+        .login {
+            padding: 10px 10px;
+            background-color: orange;
+        }
+
+        .login:hover {
+            color: white;
+            background-color: rgb(238, 156, 4);
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+
+        .content {
+            width: 80%;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .pic {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            margin: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .pic img {
+            border-radius: 10px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            mix-blend-mode: multiply;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .pic h2 {
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .pic p {
+            font-size: 18px;
+            color: #888;
+        }
+
+        .pic .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .pic .buy-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pic .buy-btn:hover {
+            z-index: 3;
+            background-color: #e76a00;
+        }
+
+        /* Hover effect for the images and container */
+        .pic:hover {
+            transform: scale(1.05);
+        }
+
+        .pic:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                width: 95%;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pic {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+
+        footer {
+            background-color: #2d3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        span{
+            color: orange;
+        font-family: "Playwrite IN", serif;
+        }

@@ -1,0 +1,46 @@
+*{
+    animation: color 5s linear infinite;
+}
+@keyframes color{
+    0%{background-color: antiquewhite;}
+    50%{background-color: aquamarine;}
+
+    100%{
+        background-color: blueviolet;
+    }
+}
+button{
+    font-size: small;
+    border-radius: 10px;
+    background-color: transparent !important;
+}
+button:hover{
+    font-size: medium;
+    background-color: aqua !important;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 3rem !important;
+    padding: 20px;
+    background-color: lightgray;
+}
+form input{
+    margin-bottom: 10px;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1;
+}
+button:hover{
+    background-color: blue;
+}
+fieldset{
+    border-radius: 30px;
+option:hover{
+    background-color: blue;
+
+
+}

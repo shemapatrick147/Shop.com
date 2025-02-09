@@ -3,32 +3,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Manage Orders</title>
-    <link rel="stylesheet" href="admin-style.css">
+    <title>SHEMA SHOP - Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --light-gray: #f5f6fa;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        .dashboard {
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            position: fixed;
+            height: 100vh;
+            width: 250px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 1rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .nav-links a.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 2rem;
+            margin-left: 250px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h3 {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .orders-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--light-gray);
+            font-weight: 600;
+        }
+
+        .status-select {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .view-details-btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .view-details-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .close-modal {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .order-details {
+            margin-bottom: 1rem;
+        }
+
+        .order-items {
+            margin-top: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+    </style>
 </head>
 <body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                SHEMA SHOP
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
 
-    <header>
-        <h3>Admin Panel - Manage Orders</h3>
-    </header>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Dashboard</h1>
+                <div class="admin-info">
+                    Welcome, Admin
+                </div>
+            </div>
 
-    <div class="admin-container">
-        <h2>All Orders</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="order-list">
-                <!-- Dynamically populated orders will appear here -->
-            </tbody>
-        </table>
+            <!-- Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <div class="value" id="total-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Today's Revenue</h3>
+                    <div class="value" id="today-revenue">$0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Orders</h3>
+                    <div class="value" id="pending-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Customers</h3>
+                    <div class="value" id="total-customers">0</div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div class="orders-section">
+                <div class="orders-header">
+                    <h2>Recent Orders</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-list">
+                        <!-- Orders will be dynamically populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-<script>    
 
-</script>    
+    <!-- Order Details Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order Details</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="modal-order-details">
+                <!-- Order details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+     
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://mhmjnvsyakpwsuwhvvgy.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+        // Initialize dashboard
+        async function initializeDashboard() {
+            await loadOrders();
+            await updateStats();
+            setupModalHandlers();
+        }
+
+        // Load and display orders
+        async function loadOrders() {
+            try {
+                const { data: orders, error } = await supabase
+                    .from('orders')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                const orderList = document.getElementById('order-list');
+                orderList.innerHTML = '';
+
+                orders.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${order.id}</td>
+                        <td>${order.customer_name}</td>
+                        <td>$${order.total_amount}</td>
+                        <td>
+                            <select class="status-select" data-order-id="${order.id}">
+                                <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>Processing</option>
+                                <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Shipped</option>
+                                <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                                <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="view-details-btn" data-order-id="${order.id}">View Details</button>
+                        </td>
+                    `;
+                    orderList.appendChild(row);
+                });
+
+                setupEventListeners(orders);
+
+            } catch (error) {
+                console.error('Error loading orders:', error);
+                alert('Error loading orders. Please refresh the page.');
+            }
+        }
+
+        // Update dashboard statistics
+        async function updateStats() {
+            try {
+                const { data: orders, error } = await supabase
+                    .from('orders')
+                    .select('*');
+
+                if (error) throw error;
+
+                // Total Orders
+                document.getElementById('total-orders').textContent = orders.length;
+
+                // Today's Revenue
+                const today = new Date().toISOString().split('T')[0];
+                const todayRevenue = orders
+                    .filter(order => order.created_at.startsWith(today))
+                    .reduce((sum, order) => sum + parseFloat(order.total_amount), 0);
+                document.getElementById('today-revenue').textContent = `$${todayRevenue.toFixed(2)}`;
+
+                // Pending Orders
+                const pendingOrders = orders.filter(order => order.status === 'pending').length;
+                document.getElementById('pending-orders').textContent = pendingOrders;
+
+                // Total Customers (unique customers)
+                const uniqueCustomers = new Set(orders.map(order => order.customer_name)).size;
+                document.getElementById('total-customers').textContent = uniqueCustomers;
+
+            } catch (error) {
+                console.error('Error updating stats:', error);
+            }
+        }
+
+        // Setup event listeners
+        function setupEventListeners(orders) {
+            // Status change handlers
+            document.querySelectorAll('.status-select').forEach(select => {
+                select.addEventListener('change', async (e) => {
+                    const orderId = e.target.dataset.orderId;
+                    const newStatus = e.target.value;
+                    
+                    try {
+                        const { error } = await supabase
+                            .from('orders')
+                            .update({ status: newStatus })
+                            .eq('id', orderId);
+
+                        if (error) throw error;
+                        
+                        updateStats();
+                    } catch (error) {
+                        console.error('Error updating status:', error);
+                        alert('Error updating order status');
+                    }
+                });
+            });
+
+            // View details handlers
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const orderId = e.target.dataset.orderId;
+                    const order = orders.find(o => o.id === orderId);
+                    showOrderDetails(order);
+                });
+            });
+        }
+
+        // Modal handlers
+        function setupModalHandlers() {
+            const modal = document.getElementById('order-modal');
+            const closeBtn = document.querySelector('.close-modal');
+
+            closeBtn.onclick = () => modal.style.display = 'block';
+            window.onclick = (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'block';
+                }
+            };
+        }
+
+        // Show order details in modal
+        function showOrderDetails(order) {
+            const modal = document.getElementById('order-modal');
+            const detailsContainer = document.getElementById('modal-order-details');
+            
+            detailsContainer.innerHTML = `
+                <div class="order-details">
+                    <p><strong>Order ID:</strong> ${order.id}</p>
+                    <p><strong>Customer:</strong> ${order.customer_name}</p>
+                    <p><strong>Address:</strong> ${order.shipping_address}</p>
+                    <p><strong>Total:</strong> $${order.total_amount}</p>
+                    <p><strong>Status:</strong> ${order.status}</p>
+                    <p><strong>Date:</strong> ${new Date(order.created_at).toLocaleString()}</p>
+                </div>
+                <div class="order-items">
+                    <h3>Order Items</h3>
+                    ${order.items.map(item => `
+                        <div class="order-item">
+                            <p>${item.name} - $${item.price}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+
+        // Initialize the dashboard when the page loads
+        initializeDashboard();
+
+        // Set up real-time subscription for orders
+        const ordersSubscription = supabase
+            .channel('orders')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => {
+                loadOrders();
+                updateStats();
+            })
+            .subscribe();
+    </script>
+</body>
+</html>

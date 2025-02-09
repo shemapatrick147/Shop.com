@@ -47,6 +47,22 @@
                 <input type="text" id="city" name="city" required placeholder="Cityville">
             </div>
 
+            <!-- Add these fields to your existing form -->
+<div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required placeholder="your@email.com">
+</div>
+
+<div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
+</div>
+
+<div class="form-group">
+    <label for="order-notes">Order Notes (Optional)</label>
+    <textarea id="order-notes" name="order-notes" placeholder="Any special instructions or notes for your order"></textarea>
+</div>
+
             <div class="form-group">
                 <label for="postal-code">Postal Code</label>
                 <input type="text" id="postal-code" name="postal-code" required placeholder="12345">
@@ -99,7 +115,8 @@
         <p>&copy; 2025 SHEMA SHOP. All Rights Reserved.</p>
         <p>Address: 123 Flavor Street, Cityville | Phone: (0791183356) | <a href="mailto:info@miganorestaurant.com" style="color: white;">Email Us</a></p>
     </footer>
-
+   <script type="module" src="config.js"></script>
+<script type="module" src="checkout.js"></script>
     <script>
         // Dynamically update order summary
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -164,7 +181,7 @@
     import { createClient } from 'https://esm.sh/@supabase/supabase-js';
   
     const supabaseUrl = 'https://mhmjnvsyakpwsuwhvvgy.supabase.co';
-    const supabaseKey = 'your_supabase_key_here'; // Replace with your key
+    const supabaseKey = 'process.env.SUPABASE_KEY'; // Replace with your key
     const supabase = createClient(supabaseUrl, supabaseKey);
   
     // Example usage

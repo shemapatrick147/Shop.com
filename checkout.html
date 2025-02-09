@@ -159,5 +159,22 @@
             //   .catch(error => console.error('Error:', error));
         };
     </script>
+
+<script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js';
+  
+    const supabaseUrl = 'https://mhmjnvsyakpwsuwhvvgy.supabase.co';
+    const supabaseKey = 'your_supabase_key_here'; // Replace with your key
+    const supabase = createClient(supabaseUrl, supabaseKey);
+  
+    // Example usage
+    async function fetchData() {
+      const { data, error } = await supabase.from('your_table').select('*');
+      if (error) console.error('Error fetching data:', error);
+      else console.log('Data:', data);
+    }
+  
+    fetchData();
+  </script>
 </body>
 </html>
